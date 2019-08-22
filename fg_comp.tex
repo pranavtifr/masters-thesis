@@ -33,19 +33,43 @@ component seperation.
 Machine learning is a type of an algorithm which, rather than explicitly coding an algorithm for a
 particular function, gives the computer the ability to \emph{learn} that function. Machine learning usually involves a
 training set, from which the computer \emph{learns} the function of interest, and a validation set where the computer applies
-whatever it has learned from the training set and gives us results.
-Based on the way  we use our training set, machine learning can be divided into two categories.
+whatever it has learned from the training set and gives us results. We would be particularly interested in a classifier,
+which can be defined as a function ($f: \mathcal{D} \rightarrow \mathbb{R}^n$) which divides the input data into $n$ different classes.
+We would also be only implementing hard clustering, where the final result is a single cluster value instead of a set of peobabilities for each
+cluster. 
+
+In our use case, We will be dividing the sky into different classes based on their foreground properties, while using the different frequencies
+as input.
+
+Based on our training set, machine learning can be divided into two categories.
 \begin{itemize}
     \item Supervised Machine Learning
-    \item UnSupervised Machine Learning
+    \item Unsupervised Machine Learning
 \end{itemize}
 
 \subsection{Supervised Machine Learning}
 A machine learning algorithm is said to perform supervised learning, when the training set is differet from the validation set, and we
-have the expected learning outcomes as part of our training set.
+have the expected learning outcomes as part of our training set. These labeled training sets consist of a input and an expected output
+value as part of the examples, and the algorithm learns the function which relates the input value to the output value based on these training examples.
+\comment{There have been several attempts to classify} the foregrounds in the
+data using this approach by using simulations to generate the training set. This method involves using the simulations to
+generate the training data for different classes based on the different foreground models used in the simulation. We then expect the machine
+learning algorithm to \emph{learn} from these simulations and help us classify the real sky into regions based on it's foreground properties.
+
+This method suffers from being model dependent \comment{write more}
 
 
-\subsection{UnSupervised Machine Learning}
+\subsection{Unsupervised Machine Learning}
+Unsupervised learning is when a machine learning algorithm has no prior information about the dataset in terms of a training set and
+the data learns and validates from the same set. In this method only the raw data is given to the algorithm, and it tries to \emph{learn}
+patterns inherent in the data, without any labels to learn from.
+
+This would be really useful for our purposes since it allows us to partition the sky based on the frequency without any model
+dependent inputs.
+\\
+We would specifically be using clustering algorithms and dimensionality reduction algorithms.
+\paragraph{Clustering Algorithms} partition the data into different classes based on how every data point
+is located with respect to it's neighbours. 
 
 \subsection{Neural Networks}
 
@@ -66,9 +90,13 @@ k-means clustering partitions $n$ data points into $k$ clusters, by associating 
 nearest centroid, which serves as a representation of that cluster. By minimising the inertia,
 We partition the space into k-regions, which serve as the partition for our clusters to be used in
 ILC.
-\\
-\comment{INSERT IMAGE FOR KMEANS CLUSTERING HERE}
-\\
+\begin{wrapfigure}{l}{0.5\linewidth}
+  \begin{center}
+  \includegraphics[width = 0.5\linewidth]{kmeans_example.png}
+  \end{center}
+  \caption{K-Means Clustering Example}
+\end{wrapfigure}
+
 The initial positions are initialized using \texttt{k-means++} algorithm inorder to avoid the
 local minimas, which the random initializations can get into. And the data is rescaled with
 quartile scaling, to prevent the outliers from influenzing the scaling.
@@ -109,6 +137,7 @@ m_4 = y_4/y_6 \quad m_5 = y_7/y_{12} \quad m_6 = y_{12}/y_5\\
 m_7 = y_7/y_5 \quad m_8 = y_7/y_8 \quad m_9 = y_8/y_5
   \end{align}
 By visually inspecting the maps, We choose the 3 measures. $m_1, m_3, m_7$,
+\comment{Plot the m's and show that m1, m3, m7 are the useful measures, or maybe appendix.}
 and perform k-means clustering.
 We also masked the galactic center along with the point sources and clustered
 the masked regions seperately.

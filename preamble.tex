@@ -1,6 +1,7 @@
-\documentclass[a4paper]{book}
+\documentclass[a4paper]{report}
 %\documentclass[nofootinbib]{revtex4}
 \usepackage[utf8]{inputenc}
+\usepackage{wrapfig}
 %\usepackage{tabto}
 %\usepackage{tgbonum}
 \usepackage{appendix}
@@ -33,10 +34,9 @@
 \baselineskip=16pt
 \paperheight=845pt
 \topmargin=-2cm
-\newcommand{\J}{\mathcal{J}}
 %\flushbottom
 
-%\input{SandhyaPreamble.tex}
+\newenvironment{acknowledgements} {\renewcommand\abstractname{Acknowledgements}\begin{abstract}} {\end{abstract}}
 \lstset
 {
     basicstyle=\small\ttfamily,
