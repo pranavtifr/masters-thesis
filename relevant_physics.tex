@@ -1,6 +1,140 @@
 \chapter{Relevant Physics}
+\label{relevantphysics}
+In this section, We explain the relevant physics, which are related to the physics quantities we are computing.
+\section{Weak Lensing}
+Weak Lensing is the phenomenon when a gravitational potential distorts the shape of astrophysical sources. We know that
+according to general relativity, light bends when passing though a gravitational potential. This creates an lens-like effect
+which distorts the sources in the background. If the lensing is weak enough that, the images are simply distorted instead of forming
+multiple images, It is known as weak lensing. 
+
+We can represent this lensing effect by the distortion tensor ($\Psi_{ij}$).
+Starting with the lensing equation $\vec{\beta} = \vec{\theta} - \vec{\alpha}$, where, $\vec{\theta}$ is the true position of the
+source, $\vec{\beta}$ is the observed position of the source and $\vec{\alpha}$ is the deviation.
+The deviation $\vec{alpha}$ can be derived as a function of the gravitational potential, Using the geodesic equation.
+\begin{align}
+  \begin{split}
+    \alpha^i ( \vec{\theta}) = \pdiff{\Phi(\vec{\theta})/c^2}{\theta^i}
+  \end{split}
+\end{align}
+Where, $\Phi$ is the projected gravitational potential, Related to the gravitational potential as,
+
+%\comment{Write the formula for $\Phi$}
+We get,
+
+\begin{align}
+  \label{derbeta}
+  \begin{split}
+    \frac{\partial \beta_i}{\partial \theta_j} =
+    \begin{pmatrix}
+      1 - \pdiff{\alpha_1}{\theta_1}& \pdiff{\alpha_1}{\theta_2} \\
+       \pdiff{\alpha_2}{\theta_1}& 1 - \pdiff{\alpha_2}{\theta_2}\\
+    \end{pmatrix}
+  \end{split}
+\end{align}
+
+We then define the distortion tensor ($\Psi_{ij}$) as,
+\begin{align}
+  \begin{split}
+    \pdiff{\beta_i}{\theta_j} =
+    \begin{pmatrix}
+      1 & 0 \\
+      0 & 1\\
+    \end{pmatrix}
+     - \Psi_{ij}
+  \end{split}
+\end{align}
+
+and then the elements of the distortion tensor\footnote{The distortion tensor is symmetric because we can write the deviation $\vec{\alpha}$ as
+  a gradient of the projected gravitational potential} are defined as,
+
+\begin{align}
+  \begin{split}
+    \Psi_{ij} = 
+    \begin{pmatrix}
+      \kappa + \gamma_1 & \gamma_2 \\
+      \gamma_2 & \kappa - \gamma_1 
+    \end{pmatrix}
+  \end{split}
+\end{align}
+
+In the weak lensing regime, $\gamma_1 \approx e_1/2$ and $\gamma_2 \approx e_2/2$ where, $e_1$ and $e_2$ are the ellipticities of the galaxies \cite{weaklensbook}
+
+Now, Writing the shear using the terms in equation \eqref{derbeta}, We get,
+\begin{align}
+  \begin{split}
+    \kappa = \frac12 \left( \pdiff{\alpha_1}{\theta_1} + \pdiff{\alpha_2}{\theta_2} \right)\\
+    \gamma_1 = \frac12 \left( \pdiff{\alpha_1}{\theta_1} - \pdiff{\alpha_2}{\theta_2} \right)\\
+    \gamma_2 = \pdiff{\alpha_1}{\theta_2} = \pdiff{\alpha_2}{\theta_1}\\
+  \end{split}
+\end{align}
+
+Now, Writing these in terms of the projected gravitational potential,
+\begin{align}
+  \begin{split}
+  \kappa = \frac{1}{2 c^2} \left(\frac{\partial^2 \Phi}{\partial \theta_1^2}+ \frac{\partial^2 \Phi}{\partial \theta_1^2} \right)\\
+  \gamma_1 =\frac{1}{2 c^2} \left(\frac{\partial^2 \Phi}{\partial \theta_1^2} - \frac{\partial^2 \Phi}{\partial \theta_1^2} \right)\\
+  \gamma_2 =\frac{1}{2 c^2} \left(\frac{\partial^2 \Phi}{\partial \theta_1 \partial \theta_2} \right)\\
+  \end{split}
+\end{align}
+
+In order to remove the polar dependence of these terms, We make different combinations of $\gamma_1$ and $\gamma_2$.
+\begin{align}
+  \begin{split}
+    \gamma_T = - \gamma_1 \cos(2\phi) - \gamma_2 \sin(2 \phi)\\
+    \gamma_X = - \gamma_1 \cos(2\phi) + \gamma_2 \sin(2 \phi)
+  \end{split}
+\end{align}
+Since, For the case of spherically symmetric mass distributions, $\gamma_x$ is zero, It serves as a very useful \emph{null test}.
+Any deviation from zero for $\gamma_x$ can be considered as systematic error in our calculations.
+
+
+
+
+
+Since we have no way of knowing in advance, The intrinsic ellipticities of the galaxies to study the effect of shear, We use correlation functions
+to capture the effect of shear on these galaxies.\\
+The observed ellipticities of the galaxies can be considered as having 2 parts, The Shear part and the Intrinsic Part, in order to remove the contribution from
+the Intrinsic part we compute correlation functions, so that the intrinsic part which is randomly oriented cancel out.
+
+For example, For the case of Cross Correlation between $\gamma_T$ and $y$\footnote{which for our purposes now is some scalar field}, 
+\begin{align}
+  \begin{split}
+    \langle \gamma_T y \rangle &= \langle \gamma_T^{shear} y \rangle + \langle \gamma_T^{intrinsic} y \rangle \\
+    &= \langle \gamma_T^{shear} y \rangle + \cancelto{0}{\langle \gamma_T^{intrinsic} y \rangle} \\
+    &= \langle \gamma_T^{shear} y \rangle
+  \end{split}
+\end{align}
+this way, We can directly compute the effect of weak lensing directly from the ellipticities without worrying about accounting
+for the intrinsic shapes of galaxies.
 
 \section{SZ Effect}
+Compton Scattering is one of the major astrophysical processes which couple matter and radiation. Sunyeav - Zel'dovich effect (SZ Effect) is one
+such example of Compton Scattering at low energies, which electrons in clusters of galaxies get scattered by the Cosmic Microwave background radiation.
 
-\section{Weak Lensing}
+We would specifically be in interested in the \emph{comptonization parameter} $y$, which is a dimensionless measure of the time spend by the radiation in an
+electron distribution along a particular line of sight.
+\begin{align}
+  \begin{split}
+    y(\vec{r}) = \int n_e(\vec{r}) \sigma_T dl \frac{k_B T_e(\vec{r})}{m_e c^2}
+  \end{split}
+\end{align}
+Where,
+\begin{itemize}
+  \item $n_e$ is the electron concentration
+  \item $\sigma_T$ is the thompson scattering cross section\footnote{since for low energies, We can take the non relativistic approximation}.
+  \item $T_e$ is the temperature of the electron cloud.
+\end{itemize}
 
+When we construct skymaps for the SZ effect, We are using the change in intensity to measure this comptonization parameter to give us insights into
+the distribution of electron clouds in the universe.
+
+Now, to use these maps to compute astrophysical or cosmological parameters, We compute the cross-correlation between the two quantities. Cross-correlation
+is an incredibly powerful statistical tool since it helps us avoid systematic biases, which might be present in these two quantities individually.
+Cross-correlating the quantities mean that the systematic biases won't affect our final outcome as the systematic biases from two different experiments could be
+assumed to be uncorrelated with each other.
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "thesis"
+%%% End:

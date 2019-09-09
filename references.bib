@@ -1,4 +1,28 @@
+WEAK LENSING REFERENCES
+
+@book{weaklensbook, 
+    place={Cambridge}, 
+    title={Gravitational Lensing}, 
+    DOI={10.1017/9781316424254}, 
+    publisher={Cambridge University Press}, 
+    author={Dodelson, Scott}, 
+    year={2017}}
+
 TSZ REFERENCES
+@article{fgremovalsupervised,
+      author         = "Norgaard-Nielsen, H. U. and Jorgensen, H. E.",
+      title          = "{Foreground removal from CMB temperature maps using an
+                        MLP neural network}",
+      journal        = "Astrophys. Space Sci.",
+      volume         = "318",
+      year           = "2008",
+      pages          = "195-206",
+      doi            = "10.1007/s10509-008-9912-6",
+      eprint         = "0809.2914",
+      archivePrefix  = "arXiv",
+      primaryClass   = "astro-ph",
+      SLACcitation   = "%%CITATION = ARXIV:0809.2914;%%"
+}
 
 @article{datarishi,
       author         = "Khatri, Rishi",
@@ -46,7 +70,7 @@ TSZ REFERENCES
       SLACcitation   = "%%CITATION = ASTRO-PH/0508268;%%"
 }
 
-@article{lilrishi, 
+@article{lilrishi,
       author         = "Khatri, Rishi",
       title          = "{Linearized iterative least-squares (LIL): a
                         parameter-fitting algorithm for component separation in
@@ -81,7 +105,9 @@ TSZ REFERENCES
 }
 
 @article{needlet,
-      author         = "Marinucci, D. and Pietrobon, D. and Balbi, A. and others",
+      author         = "Marinucci, D. and Pietrobon, D. and Balbi, A. and Baldi,
+                        P. and Cabella, P. and Kerkyacharian, G. and Natoli, P.
+                        and Picard, D. and Vittorio, N.",
       title          = "{Spherical Needlets for CMB Data Analysis}",
       journal        = "Mon. Not. Roy. Astron. Soc.",
       volume         = "383",
@@ -107,6 +133,21 @@ TSZ REFERENCES
       SLACcitation   = "%%CITATION = ARXIV:0803.1814;%%"
 }
 
+@article{rishimask,
+      author         = "Khatri, Rishi",
+      title          = "{An alternative validation strategy for the Planck
+                        cluster catalogue and $y$-distortion maps}",
+      journal        = "Astron. Astrophys.",
+      volume         = "592",
+      year           = "2016",
+      pages          = "A48",
+      doi            = "10.1051/0004-6361/201526479",
+      eprint         = "1505.00778",
+      archivePrefix  = "arXiv",
+      primaryClass   = "astro-ph.CO",
+      SLACcitation   = "%%CITATION = ARXIV:1505.00778;%%"
+}
+
 WEAK LENSING CROSS CORRELATION REFERENCES
 @article{tszrcscross,
       author         = "Hojjati, Alireza and others",
@@ -123,6 +164,7 @@ WEAK LENSING CROSS CORRELATION REFERENCES
       primaryClass   = "astro-ph.CO",
       SLACcitation   = "%%CITATION = ARXIV:1608.07581;%%"
 }
+
 @article{halotheoryma,
       author         = "Ma, Yin-Zhe and Van Waerbeke, Ludovic and Hinshaw, Gary
                         and Hojjati, Alireza and Scott, Douglas and Zuntz, Joe",
@@ -228,7 +270,10 @@ REFERENCES FOR DATA SETS
       title          = "{The fourth data release of the Kilo-Degree Survey: ugri
                         imaging and nine-band optical-IR photometry over 1000
                         square degrees}",
+      journal        = "Astron. Astrophys.",
+      volume         = "625",
       year           = "2019",
+      pages          = "A2",
       doi            = "10.1051/0004-6361/201834918",
       eprint         = "1902.11265",
       archivePrefix  = "arXiv",
@@ -236,24 +281,54 @@ REFERENCES FOR DATA SETS
       SLACcitation   = "%%CITATION = ARXIV:1902.11265;%%"
 }
 
-
-REFERENCES FOR SOFTWARE PACKAGES
-
-@misc{tensorflow, 
-      title 	     = "TensorFlow: Large-Scale Machine Learning on Heterogeneous Systems",
-      url   	     = {https://www.tensorflow.org/},
-      note           = "Software available from tensorflow.org",
-      author	     ={ Mart\'{\i}n~Abadi and Ashish~Agarwal and others},
-      year           = {2015}
+MACHINE LEARNING CITATIONS
+@article{univapproxtheorem,
+title = "Approximation capabilities of multilayer feedforward networks",
+journal = "Neural Networks",
+volume = "4",
+number = "2",
+pages = "251 - 257",
+year = "1991",
+issn = "0893-6080",
+doi = "https://doi.org/10.1016/0893-6080(91)90009-T",
+url = "http://www.sciencedirect.com/science/article/pii/089360809190009T",
+author = "Kurt Hornik",
+keywords = "Multilayer feedforward networks, Activation function, Universal approximation capabilities, Input environment measure, () approximation, Uniform approximation, Sobolev spaces, Smooth approximation",
+abstract = "We show that standard multilayer feedforward networks with as few as a single hidden layer and arbitrary bounded and nonconstant activation function are universal approximators with respect to Lp(μ) performance criteria, for arbitrary finite input environment measures μ, provided only that sufficiently many hidden units are available. If the activation function is continuous, bounded and nonconstant, then continuous mappings can be learned uniformly over compact input sets. We also give very general conditions ensuring that networks with sufficiently smooth activation functions are capable of arbitrarily accurate approximation to a function and its derivatives."
 }
 
+
+REFERENCES FOR SOFTWARE PACKAGES
+@inproceedings{pytorch,
+  title={Automatic Differentiation in {PyTorch}},
+  author={Paszke, Adam and Gross, Sam and others},
+  booktitle={NIPS Autodiff Workshop},
+  year={2017}
+}
+
+@article{tensorflow,
+      author         = "Abadi, Martín and others",
+      title          = "{TensorFlow: Large-Scale Machine Learning on
+                        Heterogeneous Distributed  Systems}",
+      year           = "2016",
+      eprint         = "1603.04467",
+      archivePrefix  = "arXiv",
+      primaryClass   = "cs.DC",
+      SLACcitation   = "%%CITATION = ARXIV:1603.04467;%%"
+}
+
+
 @article{scikit-learn,
-      title   = {Scikit-learn: Machine Learning in {P}ython},
-      author  = {Pedregosa, F. and Varoquaux, G. and Gramfort, A. and others},
-      journal = {Journal of Machine Learning Research},
-      volume 	= {12},
-      pages 	= {2825--2830},
-      year 	= {2011}
+      author         = "Pedregosa, Fabian and others",
+      title          = "{Scikit-learn: Machine Learning in Python}",
+      journal        = "J. Machine Learning Res.",
+      volume         = "12",
+      year           = "2011",
+      pages          = "2825-2830",
+      eprint         = "1201.0490",
+      archivePrefix  = "arXiv",
+      primaryClass   = "cs.LG",
+      SLACcitation   = "%%CITATION = ARXIV:1201.0490;%%"
 }
 
 @article{somoclu,
