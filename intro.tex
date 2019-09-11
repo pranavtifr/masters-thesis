@@ -1,20 +1,45 @@
 \chapter{Introduction}
-Though the general processes driving cosmological evolution and large scale structure formation is reasonably well understood,
-and the model of the universe is agreed upon to be the $\Lambda$-CDM model.
-There exists a disagreement among various probes on the precise values of the parameters contributing to the model. 
-Therefore, It is of importance to test for any systematic biases which might exist among the existing cosmological data.
+Though the general physical processes driving cosmological evolution and 
+large scale structure formation is reasonably well understood, many of the 
+details which are essential for understanding how galaxies and clusters of 
+galaxies form and evolve are still unclear. One such important factor is the 
+knowledge of the distribution of baryonic and dark matter in galaxies and
+clusters. We know that stellar mass accounts for only approximately 10\% of the 
+baryonic mass in the universe. The rest resides in diffuse components such as halos. 
 \\
-SZ-Effect and Gravitational Lensing are both powerful probes to explore the baryonic content of the universe. With the existance of hubble tension, there exists
-a possibility of systematic biases in our data. Cross-correlations provide a powerful tool for us to avoid these systematic biases, since the systematic biases
-of these two independent probes will not be correlated to each other. 
+Historically, Diffuse components are measured via X-Ray emissions and Thermal 
+Sunyaev-Zeldovich effect (tSZ). But because of the sensitivity of the experiments
+just relying on these will help us detect only the hot and dense diffuse
+components.  A possible way of observing these diffuse components would be to 
+use gravitational lensing fields. Since these lensing fields
+provide an estimate of the matter distribution in large scale structure. 
+Especially, with the recent RCSLens dataset, and the ongoing KiDS dataset, weak 
+lensing has become a precision tool in understanding large-scale structure, but
+still the lack of understanding of baryonic physics at small scales, leads to
+uncertainity in our estimates of matter distribution. \\
+These missing insights from both the methods can be compensated by cross-correlating thermal SZ probes with the weak lensing fields. Since,
+cross-correlations also have the advantage of being immune to systematic effects 
+which doesn't correlate with the signals, It provides a powerful method 
+for extracting information from these probles. 
 \\
+A recent attempt at cross-correlation found that, the data supports 
+WMAP-7yr cosmology more than the Planck Cosmology \cite{tszrcscross}.
+While, this result was found using the tSZ maps provided by the Planck
+collaboration. The results beg the question of systematic deviations 
+existing in the skymaps provided by the Planck collaboration. 
+It is therefore, Useful to consider independent algorithms which extract 
+information from the multi frequency CMB observations such as WMAP and
+Planck. The methodology presented by us here is the first attempt at 
+using unsupervised machine learning to perform component separation in a
+model independent manner.
+
 This work consists of 2 parts. a) We use an independent methodology to exact the tSZ maps from Planck's frequency data. This provides us with hints, incase
 there exists systematic deviations from the planck skymaps. b) We compute cross-correlations between tSZ maps and Weak Lensing maps by various sky surveys.
 \\
 This thesis is divided as follows, We initially review the relevant physics of the data we would be using (\ref{relevantphysics}). After which, We explain our
 component separation technique which also includes a quick introduction to the various machine learning aspects used in this work (\ref{fg_comp}). We then,
 compute the cross-correlation with various maps and datasets. (\ref{cross_correlation}). We finally present our results and concluding remarks
-(\ref{results}, \ref{conc})
+( \ref{conc})
 
 
 

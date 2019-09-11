@@ -120,7 +120,7 @@ We first rebeam all the maps to gaussian beams with different resolutions. We th
 \begin{align}
 a_{\ell m}^f= 
 b_{\ell}^n\left[a_{\ell m}^1+(1-b_{\ell}^{1})\left( a_{\ell m}^{2} + (1-b_{\ell}^{2})
-\left(  a_{\ell m}^{3} + .... + \left(1-b_{\ell}^{n-1}\right)\frac{a_{\ell m}^n }{b_{\ell}^n}\right)\right)\right].
+\left(  a_{\ell m}^{3} + ... + \left(1-b_{\ell}^{n-1}\right)\frac{a_{\ell m}^n }{b_{\ell}^n}\right)\right)\right].
 \end{align}
 In the last term in nested brackets in the above equation, we correct the
 highest resolution solution with its beam and then use the resulting
@@ -228,7 +228,7 @@ partition over the other, we consider all of them with equal probability. We see
 essentially smoothens the boundary and no additional smoothing across the cluster boundaries are
 necessary. 
 
-\subsection{'k-means clustering' method}
+\subsection{`k-means clustering' method}
 k-means clustering partitions $n$ data points into $k$ clusters, by associating each point to the
 nearest centroid, which serves as a representation of that cluster. By minimising the inertia,
 We partition the space into k-regions, which serve as the partition for our clusters to be used in
@@ -358,7 +358,27 @@ We used a 200x200 grid for testing the performance on FFP6 data, and a 300x300 g
   \includegraphics[width=0.35\linewidth]{raw_kmeans_clusters.png}
   \caption{A single instance Clustering of the Sky based on foregrounds using various methods (negative values indicate masked regions)}
 \end{figure}
+      The result of using the various algoritms FFP6 simulations is shown in Fig(\ref{ffp6res}).
+We see that our clustering algorithm is better than the one dimensional version \cite{datarishi}.
+We hope to compare it with the existing algorithms using FFP6 simulations. We also see that the
+neural network method like self organising map with a 200x200 grid performs, very close to the
+k-means algorithm where the measures are chosen by hand. It is interesting to note that
+\emph{raw-kmeans} performs the same as a self organising map.
+\begin{figure}[H]
+  \label{ffp6res}
+  \centering
+  \includegraphics[width=0.7\linewidth]{cl_plots.png}
+  \caption{Comparison of the tSZ power spectrum for various methods}
+\end{figure}
 
+Seeing that the k-means algorithm using the measures, performs the best out of the various algorithms.
+We use that on the frequency maps available on the planck data.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.7\linewidth]{sz_spec.pdf}
+  \caption{Comparison of the tSZ power spectrum of Planck Data using various methods}
+\end{figure}
 
 
 %%% Local Variables:
